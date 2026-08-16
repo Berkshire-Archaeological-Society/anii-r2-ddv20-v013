@@ -4,7 +4,7 @@
 # provides callable functions for Anvil Webapp
 # this is now in a github repository https://github.com/Berkshire-Archaeological-Society/anii-r2-server.git
 ##
-# Version 039
+# Version 039-2 
 ##
 # Author: Tony Bakker
 #
@@ -206,11 +206,11 @@ def table_update(table_name,table):
     logmsg("DEBUG",sql_cmd)
     logmsg("DEBUG",all_values)
     try:
-      ret = cur.execute(sql_cmd,all_values)
-      logmsg("DEBUG",ret)
-      conn.commit()
-      msg = "OK. " + table_name +  table_name_id + " " + " " + row[table_name_id] + " successfully updated."
-      logmsg("INFO",msg)
+       ret = cur.execute(sql_cmd,all_values)
+       logmsg("DEBUG",ret)
+       conn.commit()
+       msg = "OK. " + table_name +  table_name_id + " " + " " + row[table_name_id] + " successfully updated."
+       logmsg("INFO",msg)
     except pymysql.Error as err:
       err_msg = format(err)
       logmsg("DEBUG",err_msg)
@@ -233,19 +233,19 @@ def table_insert(table_name,table):
   logmsg("DEBUG","Entering table_insert")
   logmsg("DEBUG",table)
   conn.ping(reconnect=True)
-
+  
   # clean the table fields
   # 1. Standardize non-standard spaces (\xa0) and convert whitespace-only strings to NaN
   table.replace(r"\xa0", " ", regex=True, inplace=True)
   table.replace(r"^\s*$", np.nan, regex=True, inplace=True)
-
+  
   # 2. Strip leading/trailing spaces from all object (string) columns
   string_cols = table.select_dtypes(include="object").columns
   table[string_cols] = table[string_cols].apply(lambda col: col.str.strip())
 
   # 3. Convert all NaN values to None at the end
   table = table.replace({np.nan: None})
-
+  
   if table_name == "siteuserrole":
     # special case for siteuserrole table
     # set table_name_id to UserShortId 
@@ -257,7 +257,7 @@ def table_insert(table_name,table):
   else:
     # all other tables will have the table_name_id set to "<table_name>Id"
     table_name_id = table_name.capitalize() + "Id"
-
+  
   cols = "`,`".join([str(i) for i in table.columns.tolist()])
 
   cur = conn.cursor()
@@ -297,11 +297,11 @@ def table_insert(table_name,table):
       if table_name == "siteuserrole":
         #send email notification to user about access to site
         email_msg = ("\nDear %s,\n\n"
-                     "This is to notify you that you have been registered to access site %s in the role of %s of the Anchurus-II system for %s (%s)\n\n"
-                     "For exact details of your role please login to the above website and click on Help and read the relevant section of the Anchurus II user manual.\n\n"
-                     "Best wishes.\n\n"
-                     "%s %s - %s\n\n"
-                     % (anviluser["firstname"],row["SiteId"],row["Role"],Global_organisation,anvil.server.get_app_origin(),admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
+           "This is to notify you that you have been registered to access site %s in the role of %s of the Anchurus-II system for %s (%s)\n\n"
+           "For exact details of your role please login to the above website and click on Help and read the relevant section of the Anchurus II user manual.\n\n"
+           "Best wishes,\n\n"
+           "%s %s - %s\n\n"
+           % (anviluser["firstname"],row["SiteId"],row["Role"],Global_organisation,anvil.server.get_app_origin(),admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
         subject = ("Registration to access site %s for Anchurus-II system %s" % (row["SiteId"],Global_organisation))
         anvil.server.call("send_email",subject,email_msg,anviluser["email"],admin_user["email"])
         logmsg("DEBUG","Send notification email to user "+anviluser["email"])
@@ -313,7 +313,7 @@ def table_insert(table_name,table):
       msg = f"Row {row_nr}: {table_name} {table_name_id} {row_id} insert to database failed: {err_msg}"
       logmsg("ERROR", msg)
       msg = f"ERROR. {msg}"
-
+      
     message += msg + "\n"
 
   logmsg("DEBUG","Exiting table_insert")
@@ -337,11 +337,11 @@ def user_authentication():
   user = anvil.users.get_user()
   ip_address = str(anvil.server.context.client.ip)
   msg = "Login connection from " + ip_address + ", User " + str(user['email'])
-
+  
   # Check MariaDB for user authorisation (i.e. which role has the person in accessing the DB)
   # This role will the set in the Anvil user table, which can then be checked in the client and server by a simple call to 
   # anvil.users.get_user(), although to always check this form the server (more secure and accurate)
-
+  
   logmsg("INFO",msg)
   return ip_address
 
@@ -380,7 +380,7 @@ def create_csv(data_list,col_order,csv_name):
   # create the column order list from col_order
   if col_order is not None:
     col_list = sorted(list(col_order[0].keys()),key=lambda x: col_order[0][x])
-
+  
   # check if data_list is empty
   if len(data_list) == 0:
     # data_list is empty so need to create at least a empty list with Columns Headings
@@ -388,7 +388,7 @@ def create_csv(data_list,col_order,csv_name):
     for column_name in col_list:
       data[column_name] = None
     data_list = [data]
-
+  
   # Create Pandas DataFrame
   df_tmp = pd.DataFrame(data_list) 
 
@@ -397,7 +397,7 @@ def create_csv(data_list,col_order,csv_name):
     df_tmp.drop("DBAcontrol",axis='columns',inplace=True)
   if "DBAcontrol" in col_list:
     col_list.remove("DBAcontrol")
-
+ 
   # remove the select comlun
   if "select" in df_tmp.columns:
     df_tmp.drop("select",axis='columns',inplace=True)
@@ -413,19 +413,19 @@ def create_csv(data_list,col_order,csv_name):
   # Automatically converts to the best possible types
   #logmsg("DEBUG",df.dtypes)
   df = df.convert_dtypes()
-
+  
   # convert pandas dataframe to string (cannot send all datatypes to client so best to make all of type string)
   # pdf_result = pdf_result.mask(pdf_result.astype(str).eq('None') & df.isna(), '')
   df = df.astype('str')
-
+      
   # make all None values empty string (otherwise they will be sent to client as 'None' string, which is not good for client side processing)
   df.replace(to_replace='None', value='',inplace=True)
   df.replace(to_replace='<NA>', value='',inplace=True)
-
+  
   # 2. Get the CSV content as a string
   # Use .encode('utf-8') to convert the string to bytes, which BlobMedia requires
   csv_bytes = df.to_csv(index=False).encode('utf-8')
-
+  
   # 3. Create the Anvil Media Object
   # - 'text/csv' is the MIME type for a CSV file.
   # - csv_bytes is the content.
@@ -483,15 +483,15 @@ def save_workareas(name,work_areas_dict,site_id):
   rows = app_tables.saved_workareas.search(q.all_of(name=name,email=user["email"]))
   for row in rows:
     row.delete()
-
+  
   # now save the new list of work_areas
   msg = ""
   try:
     app_tables.saved_workareas.add_row(name=name,
-                                       datetime=date_time,
-                                       email=user["email"],
-                                       site=site_id,
-                                       workarea_dict=work_areas_dict)
+                                      datetime=date_time,
+                                      email=user["email"],
+                                      site=site_id,
+                                      workarea_dict=work_areas_dict)
     msg = msg + "OK: Successfully saved workareas for: " + name + "\n"
     logmsg("INFO",msg)
   except Exception as e:
@@ -631,10 +631,10 @@ def system_user_insert(email,password,systemrole,status,initials,firstname,lastn
            "Click on the Anchurus II User Manual link and scroll down to the entry 'Using the Anchurus II web application: the basics – a site viewer’s view'\n\n"
            "This explains what to do next, including changing your password.\n\n"
            "Lookout for your next email from Anchurus II which explain which sites you can access.\n\n"
-           "Best wishes.\n\n"
+           "Best wishes,\n\n"
            "%s %s - %s\n\n"
            % (firstname,Global_organisation,anvil.server.get_app_origin(),email,password,admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
-    subject = ("Registration Anchurus-II system %s" % (Global_organisation))
+    subject = ("Registration Anchurus-II system for %s" % (Global_organisation))
     anvil.server.call("send_email",subject,msg,email,admin_user["email"])
     msg = "OK: Created new user: " + email
     logmsg("INFO", msg)
