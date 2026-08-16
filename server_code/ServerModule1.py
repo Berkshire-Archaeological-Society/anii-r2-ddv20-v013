@@ -4,7 +4,7 @@
 # provides callable functions for Anvil Webapp
 # this is now in a github repository https://github.com/Berkshire-Archaeological-Society/anii-r2-server.git
 ##
-# Version 014
+# Version 039
 ##
 # Author: Tony Bakker
 #
@@ -449,7 +449,7 @@ def print_form(form,site_id,table_name,action,data_list,page_info):
   #print("In print form")
   #print(site_id, table_name, action)
   #print(data_list)
-  ##pdf_form = PdfRenderer(filename='Anchurus_list_form.pdf',landscape=True,page_size='A3').render_form(form,site_id,table_name,data_list,action,page_info)
+  #pdf_form = PdfRenderer(filename='Anchurus_list_form.pdf',landscape=True,page_size='A3').render_form(form,site_id,table_name,data_list,action,page_info)
   pdf_form = PDFRenderer(filename='Anchurus_list_form.pdf',landscape=True,page_size='A3').render_form(form,site_id,table_name,data_list,action,page_info)
   return pdf_form
 
@@ -530,7 +530,7 @@ def send_email(subject,body,recipient,reply_to=None):
 
   msg = "Sent email to " + recipient + ". Subj: " + subject + ". From: " + from_address
   logmsg("DEBUG",msg)
-
+    
   return 
 
 # --------------
@@ -548,12 +548,12 @@ def update_user_last_seen():
     user["last_seen"] = now
     msg = "Updated last_seen timestamp " + str(now) + " for user " + user["initials"]
     logmsg("DEBUG",msg)
-
+  
   # 2. Count users active in the last 5 minutes
   five_mins_ago = now - timedelta(minutes=delta_time)
   online_count = len(app_tables.users.search(
-    last_seen=q.greater_than(five_mins_ago)
-  )
+                                             last_seen=q.greater_than(five_mins_ago)
+                                            )
                     )
   return online_count
 
@@ -569,15 +569,15 @@ def system_users_get(type):
   else:
     tmp_list = app_tables.users.search()
   list = sorted(tmp_list, key=lambda x: (
-    # 1. Primary Sort: Case-insensitive Last Name
-    (x['lastname'] or "").casefold(),
-    # 2. Tie Breaker: Lowercase 'lastname' comes BEFORE Uppercase 'lastname'
-    not (x['lastname'] or "a").islower(),
-    # 3. Secondary Sort: Case-insensitive Initials
-    (x['initials'] or "").casefold(),
-    # 4. Tie Breaker: Lowercase 'initials' comes BEFORE Uppercase 'initials'
-    not (x['initials'] or "a").islower()
-  ))
+                                         # 1. Primary Sort: Case-insensitive Last Name
+                                         (x['lastname'] or "").casefold(),
+                                         # 2. Tie Breaker: Lowercase 'lastname' comes BEFORE Uppercase 'lastname'
+                                         not (x['lastname'] or "a").islower(),
+                                         # 3. Secondary Sort: Case-insensitive Initials
+                                         (x['initials'] or "").casefold(),
+                                         # 4. Tie Breaker: Lowercase 'initials' comes BEFORE Uppercase 'initials'
+                                         not (x['initials'] or "a").islower()
+                                        ))
   #logmsg("DEBUG",list)
   msg = "Returned user list to client (" + str(len(list)) + " users)"
   # = "Returned user list to client ( users)"
@@ -649,12 +649,12 @@ def system_user_delete(user_email):
 
   # check that there is always one enabled System Administrator user
   if row["systemrole"] == "System Administrator" and row["enabled"] == True:
-    # need to check if there is another enabled System Administrator user
-    admin_users = app_tables.users.search(systemrole = "System Administrator", enabled = True)
-    if len(admin_users) == 1:
-      msg = "ERROR: Cannot delete the only enabled System Administrator user: " + admin_users[0]["email"]
-      logmsg("ERROR", msg)
-      return msg
+     # need to check if there is another enabled System Administrator user
+     admin_users = app_tables.users.search(systemrole = "System Administrator", enabled = True)
+     if len(admin_users) == 1:
+        msg = "ERROR: Cannot delete the only enabled System Administrator user: " + admin_users[0]["email"]
+        logmsg("ERROR", msg)
+        return msg
   # delete the user
   msg = "SUCCESS: Deleted system user: " + str(user_email) 
   row.delete()
@@ -680,8 +680,8 @@ def execute_sql_command(sql_cmd):
     clean_sql = sqlparse.format(sql_cmd, strip_comments=True).strip()
     parsed = sqlparse.parse(clean_sql)
     first_token = next(
-      (t for t in parsed[0].tokens if not t.is_whitespace and t.ttype is not sqlparse.tokens.Comment), 
-      None
+        (t for t in parsed[0].tokens if not t.is_whitespace and t.ttype is not sqlparse.tokens.Comment), 
+        None
     )
     verb = first_token.value.upper() if first_token else ""
     tmp_table_name = "temp_results_" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
@@ -709,7 +709,7 @@ def execute_sql_command(sql_cmd):
 
         # Automatically converts to the best possible types
         pdf_result = pdf_result.convert_dtypes()
-
+      
         # 1. Identify numeric columns (int and float) - replace NaN with 0
         num_cols = pdf_result.select_dtypes(include=['number']).columns
         pdf_result[num_cols] = pdf_result[num_cols].fillna(0)
@@ -717,10 +717,10 @@ def execute_sql_command(sql_cmd):
         # 2. Identify object/string columns - replace NaN with empty string
         obj_cols = pdf_result.select_dtypes(exclude=['number']).columns
         pdf_result[obj_cols] = pdf_result[obj_cols].fillna('')
-
+      
         # convert pandas dataframe to string (cannot send all datatypes to client so best to make all of type string)
         pdf_result_str = pdf_result.astype('str')
-
+      
         # make all None values empty string (otherwise they will be sent to client as 'None' string, which is not good for client side processing)
         pdf_result_str.replace(to_replace='None', value='',inplace=True)
         pdf_result_str.replace(to_replace='<NA>', value='',inplace=True)
@@ -755,10 +755,10 @@ def execute_sql_command(sql_cmd):
             elif type_code in (FIELD_TYPE.BLOB, FIELD_TYPE.TINY_BLOB):  # 252 (TEXT)
               type_str = "text"
             elif type_code in (
-              FIELD_TYPE.LONG,
-              FIELD_TYPE.SHORT,
-              FIELD_TYPE.TINY,
-            ):  # 3 (INT)
+                               FIELD_TYPE.LONG,
+                               FIELD_TYPE.SHORT,
+                               FIELD_TYPE.TINY,
+                              ):  # 3 (INT)
               type_str = f"int({internal_size})"
             elif type_code in (FIELD_TYPE.NEWDECIMAL, FIELD_TYPE.DECIMAL):  # 246
               # position 4 is precision (overall length), position 5 is scale (decimals)
@@ -769,15 +769,15 @@ def execute_sql_command(sql_cmd):
 
             # Build the column record matching DESCRIBE table format
             table_info.append(
-              {
-                "Field": field_name,
-                "Type": type_str,
-                "Null": null_val,
-                "Key": "",
-                "Default": None,
-                "Extra": "",
-              }
-            )
+                    {
+                     "Field": field_name,
+                     "Type": type_str,
+                     "Null": null_val,
+                     "Key": "",
+                     "Default": None,
+                     "Extra": "",
+                    }
+                   )
         else:
           # get table info from temp table with query result
           logmsg("DEBUG","Creating table_info from temp_table description")
@@ -804,7 +804,7 @@ def execute_sql_command(sql_cmd):
         result = format(err)
         msg = "FAIL: SQL command failed: " + result
         logmsg("ERROR", msg)
-
+      
       # delete temporary table "DROP TEMPORARY TABLE IF EXISTS temp_results;"
       sql_cmd = "DROP TEMPORARY TABLE IF EXISTS " + tmp_table_name + ";"
       cur.execute(sql_cmd)
@@ -846,7 +846,7 @@ def db_get_summary(site_id):
           list.append(item["table_name"] + " - " + str(count))
     except Exception as e:
       logmsg("ERROR",f"{e}")
-
+    
     msg = "DB summary requested."
     logmsg("INFO",msg)
   return list
@@ -945,15 +945,15 @@ def describe_table(table_name):
     anvil_columns = app_tables.users.list_columns()
     # Map Anvil internal types to standard MySQL column types
     type_mapping = {
-      'string': 'varchar(255)',
-      'number': 'double',
-      'bool': 'tinyint(1)',
-      'datetime': 'datetime',
-      'date': 'date',
-      'media': 'longblob',
-      'simple_object': 'json',
-      'live_object': 'bigint(20)',      # Single Link column
-      'live_object_set': 'json'         # Multiple Links column
+        'string': 'varchar(255)',
+        'number': 'double',
+        'bool': 'tinyint(1)',
+        'datetime': 'datetime',
+        'date': 'date',
+        'media': 'longblob',
+        'simple_object': 'json',
+        'live_object': 'bigint(20)',      # Single Link column
+        'live_object_set': 'json'         # Multiple Links column
     }
 
     result = []
@@ -962,14 +962,14 @@ def describe_table(table_name):
     for idx, col in enumerate(anvil_columns, start=1):
       col_name = col['name']
       col_type_raw = col['type']
-
+        
       # Determine SQL column type representation
       sql_type = type_mapping.get(col_type_raw, col_type_raw)
-
+        
       # Mark primary keys and foreign keys (links)
       is_pk = col_name in ['id', '_id', 'email']
       is_fk = col_type_raw in ['live_object', 'live_object_set']
-
+        
       column_key = ""
       if is_pk:
         column_key = "PRI"
@@ -988,21 +988,21 @@ def describe_table(table_name):
 
       # Build schema record
       result.append({
-        'COLUMN_NAME': col_name,
-        'COLUMN_TYPE': sql_type,
-        'COLUMN_KEY': column_key,
-        'IS_NULLABLE': 'YES',  # Anvil Data Tables allow nulls on standard columns
-        'COLUMN_DEFAULT': None,
-        'CHARACTER_MAXIMUM_LENGTH': max_len,
-        'COLUMN_COMMENT': f"Anvil type: {col_type_raw}",
-        'ORDINAL_POSITION': idx
+            'COLUMN_NAME': col_name,
+            'COLUMN_TYPE': sql_type,
+            'COLUMN_KEY': column_key,
+            'IS_NULLABLE': 'YES',  # Anvil Data Tables allow nulls on standard columns
+            'COLUMN_DEFAULT': None,
+            'CHARACTER_MAXIMUM_LENGTH': max_len,
+            'COLUMN_COMMENT': f"Anvil type: {col_type_raw}",
+            'ORDINAL_POSITION': idx
       })
   else:
     # MariaDB table
     #query = f"DESCRIBE `{table_name}`"
     query = ("SELECT COLUMN_NAME,COLUMN_TYPE,COLUMN_KEY,IS_NULLABLE,COLUMN_DEFAULT,CHARACTER_MAXIMUM_LENGTH,COLUMN_COMMENT,ORDINAL_POSITION FROM INFORMATION_SCHEMA.COLUMNS WHERE "
              "TABLE_SCHEMA = '" + database_connect_info["db"] + "' AND TABLE_NAME = '" + table_name + "';")
-
+    
     conn.ping(reconnect=True)
     with conn.cursor() as cur:
       cur.execute(query)
@@ -1059,20 +1059,20 @@ def table_get(site_id,table_name):
     if table_name == "dbdiary":
       order_list = order_list + " DESC"
     sql_cmd = "SELECT * FROM " + table_name + where_clause + " ORDER BY " + order_list
-
+    
     #conn.ping(reconnect=True)
     with conn.cursor() as cur:
       logmsg("DEBUG",sql_cmd)
       cur.execute(sql_cmd)
       result = cur.fetchall()
-
+      
   # result is from users table or DB table
   # put query result in pandas dataframe
   pdf_result = pd.DataFrame(result) 
-
+      
   # Automatically converts to the best possible types
   pdf_result = pdf_result.convert_dtypes()
-
+      
   # 1. Identify numeric columns (int and float) 
   num_cols = pdf_result.select_dtypes(include=['number']).columns
   #pdf_result[num_cols] = pdf_result[num_cols].fillna('')
@@ -1080,19 +1080,19 @@ def table_get(site_id,table_name):
   # 2. Identify object/string columns - replace NaN with empty string
   obj_cols = pdf_result.select_dtypes(exclude=['number']).columns
   #pdf_result[obj_cols] = pdf_result[obj_cols].fillna('')
-
+      
   # convert pandas dataframe to string (cannot send all datatypes to client so best to make all of type string)
   # make all None/NaN/nan values an empty string
   pdf_result_str = pdf_result.astype(str).mask(pdf_result.isna(), "") 
 
   # now dataframe into records  
   pd_list = pdf_result_str.to_dict('records')
-
+ 
   #logmsg("DEBUG",pd_list)
-
+  
   msg = "Found " + str(len(result)) + " " + table_name + " rows."
   logmsg("INFO",msg)
-
+  
   col_names = list(pdf_result_str.columns.values)
   logmsg("DEBUG",col_names)
 
@@ -1101,7 +1101,7 @@ def table_get(site_id,table_name):
     col_order[column] = pos
     pos = pos +1
   logmsg("DEBUG",col_order)
-
+  
   return pd_list, col_order
 
 @anvil.server.callable
