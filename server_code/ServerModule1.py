@@ -303,7 +303,7 @@ def table_insert(table_name,table):
            "%s %s - %s\n\n"
            % (anviluser["firstname"],row["Role"],Global_organisation,admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
         subject = ("Registration to access site %s for Anchurus-II system %s" % (row["SiteId"],anvil.server.get_app_origin()))
-        anvil.server.call("send_email",subject,msg,anviluser[["email"],admin_user["email"])
+        anvil.server.call("send_email",subject,msg,anviluser["email"],admin_user["email"])
         logmsg("DEBUG",
     except pymysql.Error as err:
       err_msg = format(err)
