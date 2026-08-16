@@ -1,0 +1,137 @@
+allow_embedding: false
+correct_dependency_ids: {dep_u7h63wh2m50rm: C6ZZPAPN4YYF5NVJ}
+db_schema:
+  saved_workareas:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: datetime
+      type: datetime
+    - admin_ui: {order: 1, width: 200}
+      client_hidden: false
+      name: email
+      type: string
+    - admin_ui: {order: 1.5, width: 200}
+      client_hidden: false
+      name: site
+      type: string
+    - admin_ui: {order: -1, width: 200}
+      client_hidden: false
+      name: name
+      type: string
+    - admin_ui: {order: 2.5, width: 728}
+      client_hidden: false
+      name: workarea_dict
+      type: simpleObject
+    server: full
+    title: Saved_workareas
+  users:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: email
+      type: string
+    - admin_ui: {width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {width: 200}
+      name: signed_up
+      type: datetime
+    - admin_ui: {width: 200}
+      name: email_confirmation_key
+      type: string
+    - admin_ui: {width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {order: 11, width: 200}
+      name: mfa
+      type: simpleObject
+    - admin_ui: {order: 12, width: 200}
+      name: initials
+      type: string
+    - admin_ui: {order: 13, width: 200}
+      name: firstname
+      type: string
+    - admin_ui: {order: 14, width: 200}
+      name: lastname
+      type: string
+    - admin_ui: {order: 15, width: 200}
+      name: systemrole
+      type: string
+    - admin_ui: {order: 16, width: 200}
+      client_hidden: false
+      name: last_seen
+      type: datetime
+    indexes: []
+    server: full
+    title: Users
+dependencies:
+- dep_id: dep_u7h63wh2m50rm
+  resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
+  version: {version_tag: v3.6.1}
+metadata: {logo_img: 'asset:logo.png', title: anii_r2_ddv20}
+name: Clone of anii_r2_ddv20
+native_deps:
+  head_html: |
+    <script>
+      function  indeterminate(self, value) {
+        self = self.v._anvil.element
+        self.find('input[type=checkbox]').prop("indeterminate", value);
+      }
+
+    </script>
+
+    <script>
+      // Track the timestamp of the user's last actual interaction
+      window.lastUserActivity = Date.now();
+
+      function recordActivity() {
+        window.lastUserActivity = Date.now();
+      }
+
+      // Listen for common user actions globally across the whole page
+      ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'].forEach(function(evt) {
+        window.addEventListener(evt, recordActivity, { passive: true });
+      });
+    </script>
+package_name: anii_r2_ddv20
+renamed: true
+runtime_options:
+  client_version: '3'
+  legacy_features: {__dict__: true, bootstrap3: true, class_names: true, root_container: true}
+  server_spec: {base: python310-minimal}
+  server_version: python3-sandbox
+  version: 3
+secrets: {}
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {allow_remember_me: false, allow_signup: true, confirm_email: false, enable_automatically: false, mfa_timeout_days: 1, remember_me_days: 0.02083, require_mfa: false, require_secure_passwords: true, use_email: true, use_token: false}
+  server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
+startup: {module: Main, type: form}
+startup_form: null
+uplink_visible: true

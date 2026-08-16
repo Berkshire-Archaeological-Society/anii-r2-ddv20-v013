@@ -1,0 +1,32 @@
+components:
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'AEGQOS,TJVWAR'}
+    name: total_area_number
+    properties: {align: right, border: none, role: outlined}
+    type: TextBox
+  layout_properties: {full_width_row: true, grid_position: 'RCZAKE,YLNNGM'}
+  name: sub_header
+  properties: {}
+  type: ColumnPanel
+- components:
+  - name: AreaList
+    properties: {item_template: ListAreas.RowTemplate5}
+    type: RepeatingPanel
+  layout_properties: {full_width_row: true, grid_position: 'XDIOKG,VUOEQW'}
+  name: Area_list_1
+  properties:
+    border: none
+    columns:
+    - {data_key: column_4, id: LMMDUM, title: '', width: '50'}
+    - {data_key: column_5, id: IPXCEL, title: '', width: '50'}
+    - {data_key: AreaId, id: JKSDUP, title: Area ID}
+    - {data_key: Alias, id: FXDBFJ, title: Alias}
+    - {data_key: BottomLeftEasting, id: VJQQOR, title: Bottom Left Easting}
+    - {data_key: BottomLeftNorthing, id: OJLQEN, title: Bottom Left Northing}
+    - {data_key: TopRightEasting, id: VCPMXL, title: Top Right Easting}
+    - {data_key: TopRightNorthing, id: ILDVWX, title: Top Right Northing}
+  type: DataGrid
+container:
+  properties: {background: '', border: none}
+  type: ColumnPanel
+is_package: true

@@ -1,0 +1,587 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'PNXCDV,DWACDI'}
+    name: about_us_box
+    properties: {}
+    type: RichText
+  - event_bindings: {click: login_button_click}
+    layout_properties: {grid_position: 'FGKTJN,ZMAKTC'}
+    name: login_button
+    properties: {role: outlined-button, text: Log In}
+    type: Button
+  - event_bindings: {click: register_button_click}
+    layout_properties: {grid_position: 'FGKTJN,HUZFAM'}
+    name: register_button
+    properties: {role: outlined-button, text: Sign Up}
+    type: Button
+  layout_properties: {slot: default}
+  name: welcome_page
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+- layout_properties: {slot: left-nav}
+  name: work_area_list
+  properties: {}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {}
+      name: app_name
+      properties:
+        font_size: 10
+        spacing:
+          margin: ['8', null, '0', '12']
+          padding: ['0', null, '0', null]
+      type: Label
+    - layout_properties: {}
+      name: config_version
+      properties:
+        font_size: 10
+        spacing:
+          margin: ['8', null, '0', null]
+          padding: ['0', null, '0', null]
+      type: Label
+    - layout_properties: {}
+      name: db_name
+      properties:
+        font_size: 10
+        spacing:
+          margin: ['8', null, null, null]
+          padding: ['0', null, '0', null]
+      type: Label
+    layout_properties: {full_width_row: true, grid_position: 'DCRRVT,ZTIHLF'}
+    name: flow_panel_2
+    properties:
+      spacing:
+        margin: [null, null, '4', null]
+    type: FlowPanel
+  - layout_properties: {grid_position: 'DCRRVT,EOEARF'}
+    name: flow_panel_5
+    properties: {}
+    type: FlowPanel
+  - components:
+    - layout_properties: {}
+      name: online_users
+      properties: {font_size: 10}
+      type: Label
+    layout_properties: {grid_position: 'DCRRVT,RADSVC'}
+    name: flow_panel_3
+    properties: {}
+    type: FlowPanel
+  - layout_properties: {grid_position: 'DCRRVT,BNFCJM'}
+    name: flow_panel_4
+    properties: {}
+    type: FlowPanel
+  - components:
+    - layout_properties: {}
+      name: copyright
+      properties:
+        font_size: 10
+        icon: fa:copyright
+        icon_align: left
+        spacing:
+          margin: ['8', '12', '0', null]
+          padding: ['0', null, '0', null]
+        text: Berkshire Archaeological Society
+      type: Label
+    layout_properties: {full_width_row: true, grid_position: 'DCRRVT,XEYKUI'}
+    name: flow_panel_1
+    properties:
+      align: right
+      spacing:
+        padding: [null, null, null, null]
+    type: FlowPanel
+  layout_properties: {slot: footer-slot}
+  name: footer_column_panel
+  properties: {background: 'theme:Primary', col_widths: '{"ZTIHLF":20,"EOEARF":4,"RADSVC":12,"BNFCJM":9,"XEYKUI":15}'}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'OBVCGK,SOSGGL'}
+      name: image_1
+      properties:
+        height: 78.5555419921875
+        horizontal_align: left
+        margin: [null, '0', null, '0']
+        source: _/theme/logo.png
+      type: Image
+    - layout_properties: {grid_position: 'OBVCGK,YSDUTY LJBUMQ,SBVTKR'}
+      name: app_title
+      properties:
+        align: left
+        font_size: 28
+        foreground: ''
+        icon_align: left_edge
+        spacing:
+          margin: ['5', '0', null, '0']
+          padding: ['0', null, 0.9090908893868948, null]
+      type: Label
+    - layout_properties: {grid_position: 'OBVCGK,YSDUTY XLCKEK,VNNQHC'}
+      name: organisation
+      properties:
+        align: left
+        font_size: 24
+        foreground: ''
+        spacing:
+          margin: ['5', '0', null, '0']
+          padding: ['0', null, '0', null]
+      type: Label
+    layout_properties: {full_width_row: true, grid_position: 'XRHQDB,NFQIKO'}
+    name: title_panel
+    properties: {col_widths: '{"SOSGGL":15,"YSDUTY":45}'}
+    type: ColumnPanel
+  - components:
+    - components:
+      - event_bindings: {change: select_site_dropdown_change}
+        layout_properties: {expand: true, width: 187.5555419921875}
+        name: select_site_dropdown
+        properties:
+          font_size: 14
+          include_placeholder: true
+          margin: ['5', '0', null, '4']
+          placeholder: Select Site
+          tooltip: select site
+        type: DropDown
+      - event_bindings: {change: site_summary_change}
+        layout_properties: {expand: true, width: 145.44739697265624}
+        name: site_summary
+        properties:
+          font_size: 14
+          include_placeholder: true
+          margin: [null, '0', null, '4']
+          placeholder: Site Summary
+          tooltip: site summary
+        type: DropDown
+      layout_properties: {full_width_row: true, grid_position: 'QBIUMU,LPGJNI'}
+      name: mt_left
+      properties:
+        gap: none
+        spacing:
+          margin: ['0', '0', null, '0']
+      type: FlowPanel
+    - components:
+      - event_bindings: {change: username_dropdown_change}
+        layout_properties: {expand: true, width: 246.9998779296875}
+        name: username_dropdown
+        properties:
+          font_size: 14
+          include_placeholder: true
+          margin: [null, '0', null, '4']
+          tooltip: username
+        type: DropDown
+      - layout_properties: {}
+        name: user_role
+        properties:
+          font_size: 14
+          foreground: '#FFFFFF'
+          spacing:
+            margin: ['8', '0', null, '4']
+            padding: ['0', null, '0', null]
+        type: Label
+      - event_bindings: {click: logout_click}
+        layout_properties: {}
+        name: logout
+        properties:
+          align: left
+          font_size: 13
+          foreground: '#FFFFFF'
+          icon: fa:remove
+          spacing:
+            margin: [-1, '0', null, '2']
+            padding: [null, '0', '0', '0']
+          text: ''
+          tooltip: logout
+        type: Button
+      layout_properties: {full_width_row: true, grid_position: 'QBIUMU,SCFEUE'}
+      name: mt_right
+      properties:
+        align: right
+        gap: none
+        spacing:
+          margin: ['0', '0', null, '0']
+      type: FlowPanel
+    - components:
+      - components:
+        - event_bindings: {change: help_dropdown_change}
+          layout_properties: {width: 75}
+          name: help_dropdown
+          properties:
+            font_size: 14
+            include_placeholder: true
+            margin: ['0', null, null, '0']
+            placeholder: Help
+            role: null
+            tooltip: help
+          type: DropDown
+        layout_properties: {full_width_row: true, grid_position: 'WPNVXE,ZMXKSM'}
+        name: mm_left
+        properties:
+          background: theme:Primary
+          gap: none
+          spacing:
+            margin: ['0', null, null, '0']
+            padding: [null, '0', null, null]
+        type: FlowPanel
+      - components:
+        - event_bindings: {change: list_dropdown_change}
+          layout_properties: {}
+          name: list_dropdown
+          properties:
+            font_size: 14
+            include_placeholder: true
+            margin: ['0', '4', null, '4']
+            placeholder: List
+            tooltip: list
+          type: DropDown
+        - event_bindings: {change: insert_dropdown_change}
+          layout_properties: {}
+          name: insert_dropdown
+          properties:
+            font_size: 14
+            include_placeholder: true
+            margin: ['0', '4', null, '4']
+            placeholder: Insert
+            tooltip: insert
+          type: DropDown
+        - event_bindings: {change: import_dropdown_change}
+          layout_properties: {}
+          name: import_dropdown
+          properties:
+            font_size: 14
+            include_placeholder: true
+            items: []
+            margin: ['0', '4', null, '4']
+            placeholder: Import
+            tooltip: import
+          type: DropDown
+        - event_bindings: {}
+          layout_properties: {width: 92.3297779296875}
+          name: query_dropdown
+          properties:
+            font_size: 14
+            include_placeholder: true
+            margin: [-1.1111111405455043, '4', null, '4']
+            placeholder: Query
+            tooltip: query
+          type: DropDown
+        layout_properties: {grid_position: 'WPNVXE,GYVRON'}
+        name: mm_middle
+        properties:
+          align: center
+          gap: none
+          spacing:
+            margin: ['0', '0', null, '0']
+        type: FlowPanel
+      - components:
+        - event_bindings: {change: admin_dropdown_change}
+          layout_properties: {expand: true, width: 75}
+          name: admin_dropdown
+          properties:
+            align: right
+            background: ''
+            bold: false
+            border: ''
+            font_size: 14
+            include_placeholder: true
+            margin: ['0', '0', null, '0']
+            placeholder: Admin
+            tooltip: admin actions
+          type: DropDown
+        layout_properties: {grid_position: 'WPNVXE,BHRWOL'}
+        name: mm_right
+        properties:
+          align: right
+          background: theme:Primary
+          gap: none
+          spacing:
+            margin: ['0', null, null, '0']
+        type: FlowPanel
+      layout_properties: {full_width_row: true, grid_position: 'MMDTPN,DMQBFC'}
+      name: menu_middle
+      properties: {background: 'theme:Primary', col_spacing: none, col_widths: '{"ZMXKSM":10,"GYVRON":39,"BHRWOL":11}'}
+      type: ColumnPanel
+    layout_properties: {full_width_row: true, grid_position: 'XRHQDB,TSHPZF'}
+    name: menu_top
+    properties:
+      background: theme:Primary
+      col_spacing: none
+      col_widths: '{"LPGJNI":30,"SCFEUE":30}'
+      spacing:
+        margin: [null, '0', null, '0']
+    type: ColumnPanel
+  - components:
+    - components:
+      - layout_properties: {width: 118.852294921875}
+        name: flow_panel_10
+        properties:
+          spacing:
+            margin: ['0', null, null, null]
+        type: FlowPanel
+      - components:
+        - event_bindings: {change: select_all_change}
+          layout_properties: {}
+          name: select_all
+          properties:
+            allow_indeterminate: false
+            background: ''
+            checked: false
+            foreground: '#000000'
+            spacing:
+              margin: ['0', '0', null, null]
+              padding: [null, '0', '0', '24']
+            text: ''
+            tooltip: select page
+          type: CheckBox
+        layout_properties: {width: 70.09662373046875}
+        name: fp_select_all
+        properties:
+          foreground: ''
+          spacing:
+            margin: ['0', null, null, null]
+        type: FlowPanel
+      - layout_properties: {}
+        name: timer_activity
+        properties: {interval: 120}
+        type: Timer
+      - components:
+        - event_bindings: {click: view_row_click}
+          layout_properties: {}
+          name: view_row
+          properties:
+            foreground: theme:On Tertiary
+            icon: fa:eye
+            spacing:
+              margin: ['0', '0', null, '0']
+              padding: ['5', '0', '5', '0']
+            text: ''
+            tooltip: view row
+          type: Button
+        - event_bindings: {click: edit_row_click}
+          layout_properties: {}
+          name: edit_row
+          properties:
+            foreground: theme:On Tertiary
+            icon: fa:edit
+            spacing:
+              margin: ['0', '0', null, '0']
+              padding: ['5', '0', '5', '0']
+            text: ''
+            tooltip: update row
+          type: Button
+        - event_bindings: {click: delete_row_click}
+          layout_properties: {expand: false}
+          name: delete_row
+          properties:
+            foreground: theme:On Tertiary
+            icon: fa:trash
+            spacing:
+              margin: ['0', '0', null, null]
+              padding: ['5', '0', '5', '0']
+            text: ''
+            tooltip: delete row
+          type: Button
+        - event_bindings: {}
+          layout_properties: {}
+          name: execute_sql
+          properties:
+            foreground: theme:On Tertiary
+            icon: fa:play
+            spacing:
+              margin: ['0', '0', null, null]
+              padding: ['0', '0', '0', '0']
+            text: ''
+            tooltip: run SQL
+          type: Button
+        layout_properties: {width: 162.47982373046875}
+        name: fp_select_options
+        properties:
+          gap: none
+          spacing:
+            margin: ['0', null, null, '0']
+            padding: [null, null, null, null]
+        type: FlowPanel
+      layout_properties: {full_width_row: true, grid_position: 'CNBXKD,NFHGGR'}
+      name: mb_left
+      properties:
+        foreground: theme:Tertiary
+        gap: none
+        spacing:
+          margin: ['0', null, null, null]
+      type: FlowPanel
+    - components:
+      - event_bindings: {click: first_page_click}
+        layout_properties: {}
+        name: first_page
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:angle-double-left
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: ['0', '0', '0', '0']
+          text: ''
+          tooltip: first page
+        type: Button
+      - event_bindings: {click: prev_page_click}
+        layout_properties: {}
+        name: prev_page
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:angle-left
+          spacing:
+            margin: ['0', null, null, '0']
+            padding: ['0', '0', '0', '0']
+          text: ''
+          tooltip: prev page
+        type: Button
+      - event_bindings: {click: next_page_click}
+        layout_properties: {}
+        name: next_page
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:angle-right
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: ['0', '0', '0', '0']
+          text: ''
+          tooltip: next page
+        type: Button
+      - event_bindings: {click: last_page_click}
+        layout_properties: {}
+        name: last_page
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:angle-double-right
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: ['0', '0', '0', '0']
+          text: ''
+          tooltip: last page
+        type: Button
+      - layout_properties: {expand: true}
+        name: row_number_info
+        properties:
+          align: left
+          font_size: 12
+          foreground: theme:On Tertiary
+          spacing:
+            margin: ['0', null, null, null]
+            padding: ['6', null, '0', null]
+        type: Label
+      layout_properties: {full_width_row: true, grid_position: 'CNBXKD,JJKSVV'}
+      name: mb_middle
+      properties:
+        align: center
+        gap: none
+        spacing:
+          margin: ['0', '0', null, '0']
+        spacing_above: small
+        spacing_below: small
+      type: FlowPanel
+    - components: []
+      layout_properties: {grid_position: 'CNBXKD,OVOOMA'}
+      name: mb_search
+      properties:
+        align: right
+        spacing:
+          margin: ['0', null, null, null]
+      type: FlowPanel
+    - components:
+      - event_bindings: {click: filter_cols_click}
+        layout_properties: {}
+        name: filter_cols
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:filter
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: [null, '0', '8', '0']
+          text: ''
+          tooltip: filter columns
+        type: Button
+      - event_bindings: {click: download_csv_click}
+        layout_properties: {}
+        name: download_csv
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:download
+          spacing:
+            margin: ['0', '0', '0', '0']
+            padding: ['0', '0', '0', '0']
+          text: ''
+          tooltip: download csv
+        type: Button
+      - event_bindings: {click: print_click}
+        layout_properties: {}
+        name: print
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:print
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: ['0', '0', '0', '0']
+          text: ''
+          tooltip: print work area page
+        type: Button
+      - event_bindings: {click: refresh_click}
+        layout_properties: {}
+        name: refresh
+        properties:
+          foreground: theme:On Tertiary
+          icon: fa:refresh
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: ['0', '0', '0', '0']
+          spacing_above: none
+          spacing_below: none
+          text: ''
+          tooltip: refresh work area
+        type: Button
+      - event_bindings: {click: del_work_area_click}
+        layout_properties: {}
+        name: del_work_area
+        properties:
+          font_size: 13
+          foreground: theme:On Tertiary
+          icon: fa:remove
+          spacing:
+            margin: ['0', '0', null, '0']
+            padding: ['0', '0', '0', '0']
+          spacing_above: none
+          spacing_below: none
+          text: ''
+          tooltip: close workspace
+        type: Button
+      layout_properties: {full_width_row: true, grid_position: 'CNBXKD,HLMPXY'}
+      name: mb_right
+      properties:
+        align: right
+        gap: tiny
+        spacing:
+          margin: ['0', '4', null, '4']
+        spacing_above: small
+        spacing_below: small
+      type: FlowPanel
+    layout_properties: {full_width_row: true, grid_position: 'KRQHPQ,YRVGKZ'}
+    name: menu_bottom
+    properties: {background: 'theme:Primary Container', col_widths: '{"NFHGGR":30,"JJKSVV":25,"HLMPXY":15,"OVOOMA":5}', foreground: 'theme:On Tertiary Container'}
+    type: ColumnPanel
+  layout_properties: {slot: nav-right}
+  name: menu_block
+  properties:
+    background: ''
+    col_spacing: none
+    col_widths: '{"TSHPZF":45,"NFQIKO":25}'
+    role: null
+    spacing:
+      margin: ['0', null, null, null]
+    spacing_above: none
+    spacing_below: none
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:standard-page.html', tooltip: '', visible: true}
+  type: HtmlTemplate
+is_package: true
+slots:
+  header_slot:
+    index: 0
+    set_layout_properties: {grid_position: 'LCHCLU,FVPKZJ'}
+    target: {name: welcome_page, type: container}

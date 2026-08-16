@@ -1,0 +1,83 @@
+components:
+- layout_properties: {grid_position: 'CSGSJR,JAXCGD'}
+  name: anomalyform_title
+  properties: {bold: true, text: Anomaly Recording Sheet}
+  type: Label
+- components:
+  - layout_properties: {grid_position: 'ECDPUP,GBZTBK ILDKHH,UIHFII'}
+    name: AnomalyId_header
+    properties: {text: 'Anomaly ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'ECDPUP,GBZTBK OLAYRC,XSNCBY'}
+    name: AnomalyId
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,BXFYBB'}
+    name: SiteId_header
+    properties: {text: 'Site ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA ONYQSK,FFXJCZ'}
+    name: SiteId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'GPYRFJ,ACCEFE'}
+    name: AnomalyName_header
+    properties: {text: 'Anomaly Name (0/40):'}
+    type: Label
+  - event_bindings: {change: AnomalyName_change}
+    layout_properties: {grid_position: 'GPYRFJ,EUFMGD'}
+    name: AnomalyName
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'GPYRFJ,OXHALO'}
+    name: Year_header
+    properties: {text: 'Year (YYYY):'}
+    type: Label
+  - layout_properties: {grid_position: 'GPYRFJ,LGYNER'}
+    name: Year
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'XWJJUV,QSAKLB'}
+    name: RecordStatus_header
+    properties: {text: 'Record Status:'}
+    type: Label
+  - layout_properties: {grid_position: 'OLULCG,DKCRHC'}
+    name: RecordStatus
+    properties: {background: 'theme:On Primary', border: solid black 1px, include_placeholder: true, placeholder: Select Record Status}
+    type: DropDown
+  - layout_properties: {grid_position: 'PINWYF,NCHNEI'}
+    name: FieldDescription_header
+    properties: {text: 'Description (0/65535):'}
+    type: Label
+  - event_bindings: {change: FieldDescription_change}
+    layout_properties: {grid_position: 'MBNYGO,DJDZUS'}
+    name: Description
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 139}
+    type: TextArea
+  - layout_properties: {grid_position: 'BXGVGN,PXPSSR'}
+    name: StartYear_header
+    properties: {align: left, text: 'Start Year:'}
+    type: Label
+  - layout_properties: {grid_position: 'BXGVGN,EGRPKL'}
+    name: StartYear
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'BXGVGN,CGNLIJ'}
+    name: EndYear_header
+    properties: {text: 'End Year:'}
+    type: Label
+  - layout_properties: {grid_position: 'BXGVGN,JRFBKU'}
+    name: EndYear
+    properties: {role: outlined}
+    type: TextBox
+  layout_properties: {grid_position: 'OIAWLM,ONYWFM'}
+  name: outlined_card_1
+  properties: {col_widths: '{"ACCEFE":15,"EUFMGD":30,"OXHALO":10,"LGYNER":10}', role: outlined-card}
+  type: ColumnPanel
+- event_bindings: {click: Submit_button_click}
+  layout_properties: {grid_position: 'NPTDBN,SVEOOB'}
+  name: Submit_button
+  properties: {role: outlined-button, text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

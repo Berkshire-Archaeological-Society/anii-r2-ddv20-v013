@@ -1,0 +1,135 @@
+components:
+- layout_properties: {grid_position: 'CSGSJR,JAXCGD'}
+  name: areaform_title
+  properties: {bold: true, text: Interpretation Recording Sheet}
+  type: Label
+- components:
+  - layout_properties: {grid_position: 'FEPENB,LGCVJI YWHOWK,WWLXZY'}
+    name: Interpretation_header
+    properties: {text: 'Interpretation version:'}
+    type: Label
+  - layout_properties: {grid_position: 'FEPENB,LGCVJI SGMTTB,NCMUTK'}
+    name: Interpretation
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'FEPENB,QQJDEY WSKRTQ,NJARJI'}
+    name: SiteId_header
+    properties: {text: 'Site ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'FEPENB,QQJDEY QJHJNO,APTQAK'}
+    name: SiteId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'LPSXHC,CAMVXZ'}
+    name: RowNo_header
+    properties: {text: 'Row no:'}
+    type: Label
+  - layout_properties: {grid_position: 'LPSXHC,EPOFGP'}
+    name: RowNo
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'LPSXHC,PYQMTE'}
+    name: RowType_header
+    properties: {text: Row Type}
+    type: Label
+  - layout_properties: {grid_position: 'LPSXHC,XOPMDU'}
+    name: RowType
+    properties:
+      background: theme:On Primary
+      border: solid black 1px
+      include_placeholder: true
+      items: [Phase, Group, Set, Context, Find, 'Anomaly ']
+      placeholder: Select Row Type
+    type: DropDown
+  - layout_properties: {grid_position: 'IABVMM,EQLGEB'}
+    name: Phase_header
+    properties: {text: 'Phase (0/100):'}
+    type: Label
+  - event_bindings: {change: Phase_change}
+    layout_properties: {grid_position: 'IABVMM,KVEVPJ'}
+    name: Phase
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 139}
+    type: TextArea
+  - layout_properties: {grid_position: 'QPPPHD,PLALOV'}
+    name: Group_header
+    properties: {text: 'Group (0/100):'}
+    type: Label
+  - layout_properties: {grid_position: 'QPPPHD,JYFFLB'}
+    name: Group
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 127}
+    type: TextArea
+  - layout_properties: {grid_position: 'XDLOKN,FUKALD'}
+    name: Set_header
+    properties: {text: 'Set (0/100):'}
+    type: Label
+  - layout_properties: {grid_position: 'XDLOKN,ALZAUY'}
+    name: Set
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 128}
+    type: TextArea
+  - layout_properties: {grid_position: 'OCNPZP,OLIUZD YPJUFX,BKKCBI'}
+    name: ContextId_header
+    properties: {text: Context ID}
+    type: Label
+  - layout_properties: {grid_position: 'OCNPZP,OLIUZD UJWUNL,USWNFA'}
+    name: ContextId
+    properties: {background: 'theme:On Primary', border: solid black 1px}
+    type: DropDown
+  - layout_properties: {grid_position: 'OCNPZP,SXPQED IBRUZJ,MILNZE WCZQST,DNPICU'}
+    name: FindId_header
+    properties: {text: Find ID}
+    type: Label
+  - layout_properties: {grid_position: 'OCNPZP,SXPQED IBRUZJ,MILNZE WIPCJY,MJACGF'}
+    name: FindId
+    properties: {background: 'theme:On Primary', border: solid black 1px}
+    type: DropDown
+  - layout_properties: {grid_position: 'OCNPZP,SXPQED IBRUZJ,YAWITD EXWCHV,VKOAOL'}
+    name: AnomalyId_head
+    properties: {text: Anomaly ID}
+    type: Label
+  - layout_properties: {grid_position: 'OCNPZP,SXPQED IBRUZJ,YAWITD MRZQRH,ENILCQ'}
+    name: AnomalyId
+    properties: {background: 'theme:On Primary', border: solid black 1px}
+    type: DropDown
+  - layout_properties: {grid_position: 'XRKZVI,YEYAXE'}
+    name: Name_header
+    properties: {text: ' Name (0/100):'}
+    type: Label
+  - layout_properties: {grid_position: 'XRKZVI,IPJMOD'}
+    name: Name
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 77}
+    type: TextArea
+  - layout_properties: {grid_position: 'SHMZFK,HPLPZN'}
+    name: Description_header
+    properties: {text: 'Description (0/65535):'}
+    type: Label
+  - layout_properties: {grid_position: 'SHMZFK,GKVPBK'}
+    name: Description
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 178}
+    type: TextArea
+  - layout_properties: {grid_position: 'UKVEKB,FJUDIB'}
+    name: StartYear_header
+    properties: {text: 'Start Year:'}
+    type: Label
+  - layout_properties: {grid_position: 'UKVEKB,SYRDSS'}
+    name: StartYear
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UKVEKB,RGCJTK'}
+    name: EndYear_header
+    properties: {text: 'End Year:'}
+    type: Label
+  - layout_properties: {grid_position: 'UKVEKB,XLZCRV'}
+    name: EndYear
+    properties: {role: outlined}
+    type: TextBox
+  layout_properties: {grid_position: 'DEBRXB,AHCBTB'}
+  name: outlined_card_1
+  properties: {col_widths: '{"HPLPZN":10,"GKVPBK":50,"YEYAXE":10,"IPJMOD":50,"LGCVJI":30,"QQJDEY":30,"EQLGEB":10,"KVEVPJ":50,"CAMVXZ":10,"EPOFGP":20,"PYQMTE":10,"XOPMDU":20,"PLALOV":10,"JYFFLB":50,"FUKALD":10,"ALZAUY":50,"MILNZE":30,"YAWITD":30,"OLIUZD":20,"SXPQED":40,"FJUDIB":10,"SYRDSS":20,"RGCJTK":10,"XLZCRV":20}', role: outlined-card}
+  type: ColumnPanel
+- event_bindings: {click: Submit_button_click}
+  layout_properties: {grid_position: 'NPTDBN,SVEOOB'}
+  name: Submit_button
+  properties: {role: outlined-button, text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

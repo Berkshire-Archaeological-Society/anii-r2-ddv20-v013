@@ -1,0 +1,21 @@
+components:
+- event_bindings: {click: view_area_button_click}
+  layout_properties: {column: LMMDUM}
+  name: view_area_button
+  properties:
+    icon: fa:eye
+    spacing:
+      padding: [null, '8', null, '8']
+    text: ''
+  type: Button
+- event_bindings: {click: edit_area_button_click}
+  layout_properties: {column: IPXCEL}
+  name: edit_area_button
+  properties:
+    icon: fa:edit
+    spacing:
+      padding: [null, '8', null, '8']
+    text: ''
+  type: Button
+container: {type: DataRowPanel}
+is_package: true

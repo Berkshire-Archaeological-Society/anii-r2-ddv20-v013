@@ -1,0 +1,29 @@
+components:
+- event_bindings: {click: edit_user_button_click}
+  layout_properties: {column: FBKXLS}
+  name: edit_user_button
+  properties:
+    icon: fa:edit
+    spacing:
+      margin: ['0', null, '0', null]
+      padding: ['0', '0', '0', '0']
+    text: ''
+    tooltip: edit user
+  type: Button
+- event_bindings: {}
+  layout_properties: {column: PCBPDG}
+  name: delete_user_button
+  properties:
+    align: center
+    icon: fa:trash
+    icon_align: left
+    spacing:
+      margin: ['0', null, '0', null]
+      padding: ['0', '0', '0', '0']
+    text: ''
+    tooltip: delete user
+  type: Button
+container:
+  properties: {tooltip: edit user details}
+  type: DataRowPanel
+is_package: true

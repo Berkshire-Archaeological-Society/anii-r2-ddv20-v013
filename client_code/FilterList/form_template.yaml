@@ -1,0 +1,20 @@
+components:
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: FilterList.RowTemplate6}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'NLZSFC,DIYMVH'}
+  name: data_grid_1
+  properties:
+    columns:
+    - {data_key: column, id: JKSDUP, title: Select / Deselect columns to be shown / not shown in the table list}
+    rows_per_page: 0
+    show_page_controls: false
+  type: DataGrid
+- event_bindings: {click: submit_button_click}
+  layout_properties: {grid_position: 'MTEBZU,BERZBL'}
+  name: submit_button
+  properties: {text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

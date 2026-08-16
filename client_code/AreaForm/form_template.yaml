@@ -1,0 +1,83 @@
+components:
+- layout_properties: {grid_position: 'CSGSJR,JAXCGD'}
+  name: areaform_title
+  properties: {bold: true, text: Area Recording Sheet}
+  type: Label
+- components:
+  - layout_properties: {grid_position: 'FEPENB,LGCVJI ECPPDD,XPZZVT YWHOWK,WWLXZY'}
+    name: AreaId_header
+    properties: {text: 'Area ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'FEPENB,LGCVJI ECPPDD,XPZZVT SGMTTB,NCMUTK'}
+    name: AreaId
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'FEPENB,LGCVJI ECPPDD,IHVUYT WMYANZ,TBOHBL'}
+    name: Alias_header
+    properties: {text: 'Alias (0/40):'}
+    type: Label
+  - event_bindings: {change: Alias_change}
+    layout_properties: {grid_position: 'FEPENB,LGCVJI ECPPDD,IHVUYT DGLFET,MDCWYQ'}
+    name: Alias
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'FEPENB,QQJDEY WSKRTQ,NJARJI'}
+    name: SiteId_header
+    properties: {text: 'Site ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'FEPENB,QQJDEY QJHJNO,APTQAK'}
+    name: SiteId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'IABVMM,EQLGEB'}
+    name: Description_header
+    properties: {text: 'Description (0/255):'}
+    type: Label
+  - event_bindings: {change: Description_change}
+    layout_properties: {grid_position: 'MBNYGO,DJDZUS'}
+    name: Description
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 139}
+    type: TextArea
+  - layout_properties: {grid_position: 'XRKZVI,YEYAXE'}
+    name: BottomLeftEasting_header
+    properties: {text: 'Bottom Left Easting:'}
+    type: Label
+  - layout_properties: {grid_position: 'XRKZVI,IPJMOD'}
+    name: BottomLeftEasting
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'SHMZFK,HPLPZN'}
+    name: BottomLeftNorthing_header
+    properties: {text: 'Bottom Left Northing:'}
+    type: Label
+  - layout_properties: {grid_position: 'SHMZFK,GKVPBK'}
+    name: BottomLeftNorthing
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UKVEKB,FJUDIB'}
+    name: TopRightEasting_header
+    properties: {text: 'Top Right Easting:'}
+    type: Label
+  - layout_properties: {grid_position: 'UKVEKB,SYRDSS'}
+    name: TopRightEasting
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'LYPYXA,XOMMUI'}
+    name: TopRightNorthing_header
+    properties: {text: 'Top Right Northing:'}
+    type: Label
+  - layout_properties: {grid_position: 'LYPYXA,GNXIOG'}
+    name: TopRightNorthing
+    properties: {role: outlined}
+    type: TextBox
+  layout_properties: {grid_position: 'DEBRXB,AHCBTB'}
+  name: outlined_card_1
+  properties: {col_widths: '{"FJUDIB":10,"SYRDSS":50,"HPLPZN":10,"GKVPBK":50,"YEYAXE":10,"IPJMOD":50,"XOMMUI":10,"GNXIOG":50,"LGCVJI":45,"QQJDEY":15,"XPZZVT":25,"IHVUYT":35}', role: outlined-card}
+  type: ColumnPanel
+- event_bindings: {click: Submit_button_click}
+  layout_properties: {grid_position: 'NPTDBN,SVEOOB'}
+  name: Submit_button
+  properties: {role: outlined-button, text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

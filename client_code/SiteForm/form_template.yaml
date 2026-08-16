@@ -1,0 +1,210 @@
+components:
+- layout_properties: {grid_position: 'CSGSJR,JAXCGD'}
+  name: siteform_title
+  properties: {bold: true, text: Site Recording Sheet}
+  type: Label
+- components:
+  - layout_properties: {grid_position: 'MLJDRJ,ERXPZI WANPEU,BXFYBB'}
+    name: SiteId_header
+    properties: {text: 'Site ID (0/15):'}
+    type: Label
+  - event_bindings: {change: SiteId_change}
+    layout_properties: {grid_position: 'MLJDRJ,ERXPZI ONYQSK,FFXJCZ'}
+    name: SiteId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'MLJDRJ,WRCUZN HUKNCZ,KEMUPA'}
+    name: Name_header
+    properties: {text: 'Site Name (0/30):'}
+    type: Label
+  - event_bindings: {change: Name_change}
+    layout_properties: {grid_position: 'MLJDRJ,WRCUZN WAHXAS,NECPTY'}
+    name: Name
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'QOTIWC,FDZPPV LNURQC,QGKNPI'}
+    name: Address_header
+    properties: {text: 'Address (0/250):'}
+    type: Label
+  - event_bindings: {change: Address_change}
+    layout_properties: {grid_position: 'QOTIWC,FDZPPV LXQRGT,LBFMCY'}
+    name: Address
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 90}
+    type: TextArea
+  - layout_properties: {grid_position: 'QOTIWC,TJINTS OWLEWL,SFIETQ'}
+    name: YearStart_header
+    properties: {text: 'Year Start:'}
+    type: Label
+  - layout_properties: {grid_position: 'QOTIWC,TJINTS FPOTXK,YYBHGH'}
+    name: YearStart
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'QOTIWC,KPUICI IZFSLB,ZICYMV'}
+    name: YearEnd_header
+    properties: {text: 'Year End:'}
+    type: Label
+  - layout_properties: {grid_position: 'QOTIWC,KPUICI UFYEGF,FCVYSJ'}
+    name: YearEnd
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'AERDDQ,YTDOUB'}
+    name: BNGR_header
+    properties: {text: 'BNGR (0/14):'}
+    type: Label
+  - event_bindings: {change: BNGR_change}
+    layout_properties: {grid_position: 'AERDDQ,BLVMMK'}
+    name: BNGR
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'XNBRNG,DTQPHY'}
+    name: SurveyMethod_header
+    properties: {text: 'Survey Method:'}
+    type: Label
+  - layout_properties: {grid_position: 'XNBRNG,HDOUXL'}
+    name: SurveyMethod
+    properties:
+      background: theme:On Primary
+      border: solid black 1px
+      include_placeholder: true
+      items: [BNG, Aligned to BNG north, Not aligned to BNG north]
+      placeholder: Select Survey Method
+    type: DropDown
+  - layout_properties: {grid_position: 'AIKFGV,YUBSBB'}
+    name: OriginSGeast_header
+    properties: {text: 'Origin SG East:'}
+    type: Label
+  - layout_properties: {grid_position: 'AIKFGV,GHCUIG ENKCTU,XGMLPH'}
+    name: OriginSGeast
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'AIKFGV,GHCUIG ENKCTU,AFTIEK'}
+    name: OriginSGnorth_header
+    properties: {text: 'Origin SG North:'}
+    type: Label
+  - layout_properties: {grid_position: 'AIKFGV,HSXVED'}
+    name: OriginSGnorth
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'WNWDWV,AUQGIK'}
+    name: C1Easting_header
+    properties: {text: 'C1 Easting:'}
+    type: Label
+  - layout_properties: {grid_position: 'WNWDWV,LJCDVS'}
+    name: C1Easting
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'WNWDWV,OIISQL'}
+    name: C1Northing_header
+    properties: {text: 'C1 Northing:'}
+    type: Label
+  - layout_properties: {grid_position: 'WNWDWV,SLYTDR'}
+    name: C1Northing
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UQHRZO,TDFCHJ'}
+    name: C1SGeast_header
+    properties: {text: 'C1 SG East:'}
+    type: Label
+  - layout_properties: {grid_position: 'UQHRZO,YOGQJZ'}
+    name: C1SGeast
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UQHRZO,IOOPEN'}
+    name: C1SGnorth_header
+    properties: {text: 'C1 SG North:'}
+    type: Label
+  - layout_properties: {grid_position: 'UQHRZO,CFLLKK'}
+    name: C1SGnorth
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UWJFNR,ZWMVTY'}
+    name: C2Easting_header
+    properties: {text: 'C2 Easting:'}
+    type: Label
+  - layout_properties: {grid_position: 'UWJFNR,RXNPWE'}
+    name: C2Easting
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UWJFNR,PLFAWB'}
+    name: C2Northing_header
+    properties: {text: 'C2 Northing:'}
+    type: Label
+  - layout_properties: {grid_position: 'UWJFNR,WSEYHN'}
+    name: C2Northing
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'QQSMHX,PDRLHR'}
+    name: C2SGeast_header
+    properties: {text: 'C2 Sg East:'}
+    type: Label
+  - layout_properties: {grid_position: 'QQSMHX,QUOOCJ'}
+    name: C2SGeast
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'QQSMHX,SWPDNY'}
+    name: C2SGnorth_header
+    properties: {text: 'C2 SG North:'}
+    type: Label
+  - layout_properties: {grid_position: 'QQSMHX,RJZBZF'}
+    name: C2SGnorth
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'MWRWYV,SOVIXG'}
+    name: SGAngle_header
+    properties: {text: 'SG Angle:'}
+    type: Label
+  - layout_properties: {grid_position: 'MWRWYV,HWNRML'}
+    name: SGAngle
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UCZOKW,TOCPAL'}
+    name: PBSGEast_header
+    properties: {text: 'PB SG East:'}
+    type: Label
+  - layout_properties: {grid_position: 'UCZOKW,USMHIA'}
+    name: PBSGeast
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'UCZOKW,OWTYQN'}
+    name: PBSGnorth_headerel_11
+    properties: {text: 'PB SG North:'}
+    type: Label
+  - layout_properties: {grid_position: 'UCZOKW,GBLUON'}
+    name: PBSGnorth
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'OUFKEY,OKNYUX'}
+    name: PBaod_header
+    properties: {text: 'PB AOD:'}
+    type: Label
+  - layout_properties: {grid_position: 'OUFKEY,HXVYUU'}
+    name: PBaod
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'BZEYYK,MPSWJU'}
+    name: OriginEasting_header
+    properties: {text: 'Origin Easting:'}
+    type: Label
+  - layout_properties: {grid_position: 'BZEYYK,MZAORI'}
+    name: OriginEasting
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'BZEYYK,NVOEUY'}
+    name: OriginNorthing_header
+    properties: {text: 'Origin Northing:'}
+    type: Label
+  - layout_properties: {grid_position: 'BZEYYK,WLPKJV'}
+    name: OriginNorthing
+    properties: {role: outlined}
+    type: TextBox
+  layout_properties: {grid_position: 'DEBRXB,AHCBTB'}
+  name: outlined_card_1
+  properties: {col_widths: '{"ERXPZI":20,"WRCUZN":25,"FDZPPV":40,"TJINTS":10,"KPUICI":10,"YTDOUB":10,"BLVMMK":50,"DTQPHY":10,"HDOUXL":50,"YUBSBB":15,"GHCUIG":30,"HSXVED":15,"SOVIXG":15,"HWNRML":45,"OKNYUX":15,"HXVYUU":45}', role: outlined-card}
+  type: ColumnPanel
+- event_bindings: {click: Submit_button_click}
+  layout_properties: {grid_position: 'NPTDBN,SVEOOB'}
+  name: Submit_button
+  properties: {role: outlined-button, text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

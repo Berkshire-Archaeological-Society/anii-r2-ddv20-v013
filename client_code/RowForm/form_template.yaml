@@ -1,0 +1,26 @@
+components:
+- components:
+  - layout_properties: {}
+    name: ws_name
+    properties: {font_size: 14, foreground: 'theme:On Secondary', role: outlined}
+    type: TextBox
+  - layout_properties: {}
+    name: title
+    properties:
+      background: ''
+      font_size: 14
+      foreground: theme:On Primary
+      spacing:
+        margin: [null, null, null, '4']
+    type: Label
+  layout_properties: {full_width_row: true, grid_position: 'JKYUZF,FPXBRI'}
+  name: flow_panel_1
+  properties: {background: 'theme:Tertiary', foreground: 'theme:On Secondary'}
+  type: FlowPanel
+- components: []
+  layout_properties: {full_width_row: true, grid_position: 'HZSULK,VOVPUC'}
+  name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

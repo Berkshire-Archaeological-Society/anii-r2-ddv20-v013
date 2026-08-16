@@ -1,0 +1,41 @@
+components:
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'JKONWX,USNEJR'}
+    name: title
+    properties: {font_size: 24, text: List of System Users}
+    type: Label
+  layout_properties: {full_width_row: true, grid_position: 'LYIUJG,WRVCWB'}
+  name: sub_header
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'LYIUJG,ZGUBRQ'}
+  name: total_user_number
+  properties: {align: right, border: none, role: outlined}
+  type: TextBox
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: ListUsers.RowTemplate2}
+    type: RepeatingPanel
+  layout_properties: {full_width_row: true, grid_position: 'GVFZBW,UNPKFM'}
+  name: table
+  properties:
+    columns:
+    - {data_key: column_4, expand: false, id: FBKXLS, title: '', width: '50'}
+    - {data_key: column_1, id: PCBPDG, title: '', width: '50'}
+    - {data_key: email, expand: true, id: JKSDUP, title: email, width: 249}
+    - {data_key: firstname, expand: false, id: CFBYUP, title: firstname, width: 148.18182373046875}
+    - {data_key: lastname, expand: false, id: KIVAWX, title: lastname, width: 172.727294921875}
+    - {data_key: initials, expand: false, id: ATFSVD, title: initials, width: 80.45458984375}
+    - {data_key: systemrole, expand: false, id: VJQQOR, title: systemrole, width: 151.9091796875}
+    - {data_key: enabled, expand: false, id: OJLQEN, title: enabled, width: 97}
+    - {data_key: last_login, expand: false, id: SRVCJL, title: last login, width: 331}
+    - {data_key: last_seen, expand: false, id: DNLLWQ, title: last seen, width: 453}
+    - {data_key: signed_up, expand: false, id: MPXLTV, title: signed up, width: 515.6666259765625}
+    - {data_key: confirmed_email, expand: true, id: YKUJWY, title: confirmed email, width: 130}
+    - {data_key: n_password_failures, expand: false, id: WXBITA, title: password failures, width: 141}
+    - {data_key: '', id: DRLZHP, title: '', width: '10'}
+  type: DataGrid
+container:
+  properties: {col_widths: '{"WRVCWB":40,"ZGUBRQ":20}'}
+  type: ColumnPanel
+is_package: true

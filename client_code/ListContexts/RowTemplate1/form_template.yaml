@@ -1,0 +1,31 @@
+components:
+- event_bindings: {click: edit_context_button_click}
+  layout_properties: {column: IWGMNO}
+  name: edit_context_button
+  properties:
+    align: left
+    icon: fa:edit
+    spacing:
+      padding: [null, '2', null, '2']
+    text: ''
+  type: Button
+- event_bindings: {click: view_context_button_click}
+  layout_properties: {column: CUJRTJ}
+  name: view_context_button
+  properties:
+    align: left
+    icon: fa:eye
+    spacing:
+      padding: [null, '2', null, '2']
+    text: ''
+  type: Button
+- layout_properties: {column: CHHMFR}
+  name: check_box_1
+  properties: {border: '', foreground: 'theme:Tertiary', text: check_box_1}
+  type: CheckBox
+- layout_properties: {column: CHHMFR}
+  name: radio_button_1
+  properties: {text: ''}
+  type: RadioButton
+container: {type: DataRowPanel}
+is_package: true

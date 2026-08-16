@@ -1,0 +1,9 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''text'']', property: text, writeback: false}
+  layout_properties: {column: JKSDUP}
+  name: check_box_1
+  properties: {checked: true, text: check_box_1}
+  type: CheckBox
+container: {type: DataRowPanel}
+is_package: true

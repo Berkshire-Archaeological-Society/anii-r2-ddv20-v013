@@ -1,0 +1,62 @@
+components:
+- layout_properties: {grid_position: 'EQDXGC,ZGUCEG'}
+  name: Import_title
+  properties: {font_size: 18}
+  type: Label
+- layout_properties: {grid_position: 'GMEVMI,OFLTLX CCFYOD,FYEVBA'}
+  name: label_2
+  properties: {text: 'Here you can download a template csv file of the table:'}
+  type: Label
+- layout_properties: {grid_position: 'GMEVMI,OFLTLX PMCMQG,JNLSAC'}
+  name: label_1
+  properties: {text: 'You have selected to import a csv file for the table:'}
+  type: Label
+- event_bindings: {}
+  layout_properties: {grid_position: 'GMEVMI,TEIHJG ZWOKSF,RUCUIS'}
+  name: download_csv_template
+  properties: {align: left, icon: 'fa:download', text: '', tooltip: download csv template}
+  type: Button
+- layout_properties: {grid_position: 'GMEVMI,TEIHJG XWPVRY,DCPDBZ'}
+  name: selected_table
+  properties: {bold: true}
+  type: Label
+- event_bindings: {change: upload_file_change}
+  layout_properties: {grid_position: 'EUETTO,ZMXQUR'}
+  name: upload_file
+  properties: {align: left}
+  type: FileLoader
+- layout_properties: {grid_position: 'CNYLVQ,LJGIAC'}
+  name: selected_file_name
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'WRHPNQ,HIMHLI'}
+  name: message_log_header
+  properties: {bold: true, text: 'Import processing log:'}
+  type: Label
+- event_bindings: {}
+  layout_properties: {grid_position: 'UJILQQ,ZIRTOA'}
+  name: message_log
+  properties: {background: 'theme:On Primary', border: solid black 1px, height: 282}
+  type: TextArea
+- event_bindings: {click: commit_inserts_click}
+  layout_properties: {grid_position: 'LDSRWL,TXRUOI'}
+  name: commit_inserts
+  properties:
+    role: outlined-button
+    text: |-
+      Commit Import
+      (and save message log)
+  type: Button
+- event_bindings: {click: cancel_inserts_click}
+  layout_properties: {grid_position: 'LDSRWL,GARSTZ'}
+  name: cancel_inserts
+  properties:
+    role: outlined-button
+    text: |-
+      Cancel Import
+      (and save message log)
+  type: Button
+container:
+  properties: {col_widths: '{"ZMXQUR":65,"OFLTLX":30}'}
+  type: ColumnPanel
+is_package: true

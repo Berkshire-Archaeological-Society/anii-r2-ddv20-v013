@@ -1,0 +1,35 @@
+components:
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'XHEGHD,OXWLOY'}
+    name: label_1
+    properties: {font_size: 24, text: List of Sites}
+    type: Label
+  - layout_properties: {full_width_row: true, grid_position: 'XHEGHD,KCLVTX'}
+    name: total_site_number
+    properties: {align: right, border: none, role: outlined}
+    type: TextBox
+  layout_properties: {full_width_row: true, grid_position: 'RCZAKE,YLNNGM'}
+  name: sub_header
+  properties: {col_widths: '{"OXWLOY":40,"KCLVTX":20}'}
+  type: ColumnPanel
+- components:
+  - name: SitesList
+    properties: {item_template: ListSites.RowTemplate3}
+    type: RepeatingPanel
+  layout_properties: {full_width_row: true, grid_position: 'JCQOCS,PJFBDF'}
+  name: Site_list_1
+  properties:
+    columns:
+    - {data_key: column_3, id: OJLQEN, title: '', width: '50'}
+    - {data_key: column_1, id: MITHRD, title: '', width: '50'}
+    - {data_key: SiteId, expand: false, id: JKSDUP, title: Site ID, width: 110}
+    - {data_key: Name, expand: false, id: VJQQOR, title: Name, width: 369}
+    - {data_key: YearStart, expand: false, id: AAWXUU, title: Year Start, width: 99}
+    - {data_key: YearEnd, expand: false, id: FAAFCT, title: Year End, width: 98}
+    - {data_key: BNGR, expand: false, id: JBLYYX, title: BNGR, width: 184}
+    - {data_key: SurveyMethod, id: MKIYOG, title: Survey Method}
+  type: DataGrid
+container:
+  properties: {background: '', border: ''}
+  type: ColumnPanel
+is_package: true

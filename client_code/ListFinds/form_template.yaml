@@ -1,0 +1,30 @@
+components:
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'BKQDAH,RQXRUM'}
+    name: total_find_number
+    properties: {align: right, border: none, role: outlined}
+    type: TextBox
+  layout_properties: {full_width_row: true, grid_position: 'NPZDRD,GXVPYR'}
+  name: sub_header
+  properties: {background: ''}
+  type: ColumnPanel
+- components:
+  - name: FindsList
+    properties: {item_template: ListFinds.RowTemplate4}
+    type: RepeatingPanel
+  layout_properties: {full_width_row: true, grid_position: 'HUDHJE,CHQOLW'}
+  name: Find_list_1
+  properties:
+    columns:
+    - {data_key: column_4, expand: false, id: MIXZYX, title: '', width: '50'}
+    - {data_key: column_5, expand: false, id: MXWAHT, title: '', width: '50'}
+    - {data_key: FindId, id: JKSDUP, title: Find ID}
+    - {data_key: ContextId, id: VJQQOR, title: Context ID}
+    - {data_key: FindType, id: OJLQEN, title: Find Type}
+    - {data_key: Count, id: NIDAOJ, title: Count}
+    - {data_key: Name, id: WWMABK, title: Name}
+  type: DataGrid
+container:
+  properties: {background: '', border: ''}
+  type: ColumnPanel
+is_package: true

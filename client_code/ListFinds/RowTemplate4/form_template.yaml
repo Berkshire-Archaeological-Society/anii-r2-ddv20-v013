@@ -1,0 +1,24 @@
+components:
+- event_bindings: {click: View_find_button_click}
+  layout_properties: {column: MIXZYX}
+  name: View_find_button
+  properties:
+    align: left
+    icon: fa:eye
+    spacing:
+      margin: [null, null, '4', null]
+      padding: [null, '8', null, '8']
+    text: ''
+  type: Button
+- event_bindings: {click: edit_find_button_click}
+  layout_properties: {column: MXWAHT}
+  name: edit_find_button
+  properties:
+    align: left
+    icon: fa:edit
+    spacing:
+      padding: [null, '8', null, '8']
+    text: ''
+  type: Button
+container: {type: DataRowPanel}
+is_package: true

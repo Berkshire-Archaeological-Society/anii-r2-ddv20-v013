@@ -1,0 +1,60 @@
+components:
+- components:
+  - layout_properties: {}
+    name: ws_name
+    properties:
+      font_size: 14
+      foreground: theme:On Secondary
+      margin: [null, null, '4', null]
+      role: outlined
+    type: TextBox
+  - components:
+    - layout_properties: {full_width_row: true, grid_position: 'SPFZDH,KDRZPD'}
+      name: title
+      properties:
+        icon_align: left_edge
+        spacing:
+          margin: ['0', null, '0', null]
+          padding: [null, null, '4', null]
+      type: Label
+    layout_properties: {expand: true, width: 930}
+    name: column_panel_1
+    properties: {foreground: 'theme:On Secondary'}
+    type: ColumnPanel
+  layout_properties: {full_width_row: true, grid_position: 'AWDFQE,CNFIXF'}
+  name: flow_panel_1
+  properties: {background: 'theme:Tertiary', foreground: 'theme:On Secondary'}
+  type: FlowPanel
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1
+    properties:
+      border: ''
+      item_template: TableList.RowTemplate8
+      margin: ['0', null, '0', null]
+      role: null
+    type: RepeatingPanel
+  layout_properties: {full_width_row: true, grid_position: 'MWMTGX,ARPQLN'}
+  name: table
+  properties:
+    auto_header: true
+    background: ''
+    columns: []
+    margin: ['0', null, null, null]
+    role: compact-grid
+    rows_per_page: 0
+    show_page_controls: false
+    spacing_above: none
+    spacing_below: none
+  type: DataGrid
+container:
+  properties:
+    background: ''
+    border: ''
+    col_spacing: medium
+    spacing:
+      margin: ['0', null, null, null]
+    spacing_above: none
+    spacing_below: none
+  type: ColumnPanel
+is_package: true

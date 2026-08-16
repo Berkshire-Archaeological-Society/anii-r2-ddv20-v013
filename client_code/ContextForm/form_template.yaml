@@ -1,0 +1,135 @@
+components:
+- layout_properties: {grid_position: 'CSGSJR,JAXCGD'}
+  name: contextform_title
+  properties: {bold: true, text: Context Recording Sheet}
+  type: Label
+- components:
+  - layout_properties: {grid_position: 'MLJDRJ,ERXPZI ECDPUP,GBZTBK ILDKHH,UIHFII'}
+    name: ContextId_header
+    properties: {text: 'Context ID (Caaccc):'}
+    type: Label
+  - layout_properties: {grid_position: 'MLJDRJ,ERXPZI ECDPUP,GBZTBK OLAYRC,XSNCBY'}
+    name: ContextId
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'MLJDRJ,ERXPZI ECDPUP,BJYTJA WANPEU,BXFYBB'}
+    name: SiteId_header
+    properties: {text: 'Site ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'MLJDRJ,ERXPZI ECDPUP,BJYTJA ONYQSK,FFXJCZ'}
+    name: SiteId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'MLJDRJ,IKLFTF RETBLV,EPOVRU'}
+    name: AreaId_header
+    properties: {text: Area ID}
+    type: Label
+  - layout_properties: {grid_position: 'MLJDRJ,IKLFTF SRNGFL,UMCCMR'}
+    name: AreaId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'GPYRFJ,ACCEFE'}
+    name: Name_header
+    properties: {text: 'Context Name (0/40):'}
+    type: Label
+  - event_bindings: {change: Name_change}
+    layout_properties: {grid_position: 'GPYRFJ,EUFMGD'}
+    name: Name
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'GPYRFJ,OXHALO'}
+    name: Year_header
+    properties: {text: 'Year (YYYY):'}
+    type: Label
+  - layout_properties: {grid_position: 'GPYRFJ,LGYNER'}
+    name: Year
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'VZJDZH,DIIGQN LOMSQX,CSIUIA'}
+    name: ContextType_header
+    properties: {text: 'Context Type:'}
+    type: Label
+  - layout_properties: {grid_position: 'VZJDZH,DIIGQN LOMSQX,GAHIPZ'}
+    name: ContextType
+    properties:
+      background: theme:On Primary
+      border: solid black 1px
+      include_placeholder: true
+      items: []
+      placeholder: Select Context Type
+    type: DropDown
+  - layout_properties: {grid_position: 'VZJDZH,DSMKCY ZAJTPV,EQPAVW'}
+    name: FillOfFind_header
+    properties: {text: 'Fill of Cut Find ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'VZJDZH,DSMKCY ZAJTPV,DSDOEU'}
+    name: FillOfFindId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'HJOMSW,UHGAGU'}
+    name: RecordStatus_header
+    properties: {text: 'Record Status (0/25):'}
+    type: Label
+  - event_bindings: {change: RecordStatus_change}
+    layout_properties: {grid_position: 'KVYRDP,XRSEIK'}
+    name: RecordStatus
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'DITNBM,VREKJL'}
+    name: context_help_information
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 137}
+    type: TextArea
+  - layout_properties: {grid_position: 'PINWYF,NCHNEI'}
+    name: Description_header
+    properties: {text: 'Description (0/65535):'}
+    type: Label
+  - event_bindings: {change: Description_change}
+    layout_properties: {grid_position: 'MBNYGO,DJDZUS'}
+    name: Description
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 139}
+    type: TextArea
+  - layout_properties: {grid_position: 'JESLHH,ULVZWB'}
+    name: Interpretation_header
+    properties: {text: 'Interpretation (0/65535):'}
+    type: Label
+  - event_bindings: {change: Interpretation_change}
+    layout_properties: {grid_position: 'HZWBDM,CGDBHJ'}
+    name: Interpretation
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 135}
+    type: TextArea
+  - layout_properties: {grid_position: 'BXGVGN,PXPSSR'}
+    name: YearStart_header
+    properties: {text: 'Year Start:'}
+    type: Label
+  - layout_properties: {grid_position: 'BXGVGN,EGRPKL'}
+    name: YearStart
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'BXGVGN,CGNLIJ'}
+    name: YearEnd_header
+    properties: {text: Year End}
+    type: Label
+  - layout_properties: {grid_position: 'BXGVGN,JRFBKU'}
+    name: YearEnd
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'FTPSLA,VTFKZJ'}
+    name: DatesAssignedBy_header
+    properties: {text: 'Dates Assigned By (0/100):'}
+    type: Label
+  - event_bindings: {change: DatesAssignedBy_change}
+    layout_properties: {grid_position: 'ZYRNRU,JXZVGM'}
+    name: DatesAssignedBy
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 102}
+    type: TextArea
+  layout_properties: {grid_position: 'OIAWLM,ONYWFM'}
+  name: outlined_card_1
+  properties: {col_widths: '{"ERXPZI":30,"IKLFTF":18,"ACCEFE":10,"EUFMGD":30,"DSMKCY":15,"OXHALO":10,"LGYNER":15,"DIIGQN":25,"CSIUIA":15,"GAHIPZ":45,"EQPAVW":25,"DSDOEU":35}', role: outlined-card}
+  type: ColumnPanel
+- event_bindings: {click: Submit_button_click}
+  layout_properties: {grid_position: 'NPTDBN,SVEOOB'}
+  name: Submit_button
+  properties: {role: outlined-button, text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

@@ -1,0 +1,21 @@
+components:
+- event_bindings: {click: view_site_button_click}
+  layout_properties: {column: OJLQEN}
+  name: view_site_button
+  properties:
+    icon: fa:eye
+    spacing:
+      padding: [null, 7, null, '8']
+    text: ''
+  type: Button
+- event_bindings: {click: edit_site_button_click}
+  layout_properties: {column: MITHRD}
+  name: edit_site_button
+  properties:
+    icon: fa:edit
+    spacing:
+      padding: [null, '8', null, '8']
+    text: ''
+  type: Button
+container: {type: DataRowPanel}
+is_package: true

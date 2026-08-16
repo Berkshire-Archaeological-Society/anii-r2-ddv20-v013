@@ -1,0 +1,249 @@
+components:
+- layout_properties: {grid_position: 'CSGSJR,JAXCGD'}
+  name: findform_title
+  properties: {bold: true, text: Find Recording Sheet}
+  type: Label
+- components:
+  - layout_properties: {grid_position: 'ECDPUP,GBZTBK ILDKHH,UIHFII'}
+    name: FindId_header
+    properties: {text: 'Find ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'ECDPUP,GBZTBK OLAYRC,XSNCBY'}
+    name: FindId
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,DNBSSU ZZGLGI,FGTKGZ'}
+    name: ContextId_header
+    properties: {text: 'Context ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,DNBSSU PBQULJ,VBIAWK'}
+    name: ContextId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,BXFYBB RHNIGV,IJUAQW'}
+    name: SiteId_header
+    properties: {text: 'Site ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,BXFYBB NLRGPG,AKDSKM'}
+    name: SiteId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,KFNADS VRQQNI,EKITZV'}
+    name: SampleFindId_header
+    properties: {text: 'Sample Find ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'ECDPUP,BJYTJA WANPEU,KFNADS JQKHBT,RAJOFG'}
+    name: FromSample
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'WTYUTK,LEACHY OMDFFF,OPWDRX'}
+    name: FindType_header
+    properties: {text: 'Find Type:'}
+    type: Label
+  - layout_properties: {grid_position: 'WTYUTK,LEACHY ZEFPRX,UQPLGP'}
+    name: FindType
+    properties:
+      background: theme:On Primary
+      border: solid black 1px
+      include_placeholder: true
+      items: [Bulk Find, Small Find, Sample, Find Group]
+      placeholder: Select Find Type
+    type: DropDown
+  - layout_properties: {grid_position: 'WTYUTK,YEHMMS SRACUM,MAPBFK'}
+    name: RecordStatus_header
+    properties: {text: 'Record Status:'}
+    type: Label
+  - layout_properties: {grid_position: 'WTYUTK,YEHMMS RYJOXD,TTFEEF'}
+    name: RecordStatus
+    properties: {role: outlined}
+    type: TextBox
+  - components:
+    - layout_properties: {col_xs: 0, row: XFEPPR, width_xs: 12}
+      name: MaterialTypes_header
+      properties: {text: 'Material Type(s):'}
+      type: Label
+    - layout_properties: {col_xs: 0, row: RUFPTR, width_xs: 3}
+      name: cbm_mortar
+      properties: {text: CBM Mortar}
+      type: CheckBox
+    - layout_properties: {col_xs: 2, row: RUFPTR, width_xs: 3}
+      name: cbm_brick
+      properties: {text: CBM Brick}
+      type: CheckBox
+    - layout_properties: {col_xs: 0, row: RUFPTR, width_xs: 3}
+      name: cbm_tile
+      properties: {text: CBM Tile}
+      type: CheckBox
+    - layout_properties: {col_xs: 9, row: RUFPTR, width_xs: 3}
+      name: cbm_drain_pipe
+      properties: {text: CBM Drain Pipe}
+      type: CheckBox
+    - layout_properties: {col_xs: 0, row: ZOXGZU, width_xs: 3}
+      name: stone
+      properties: {text: Stone}
+      type: CheckBox
+    - layout_properties: {col_xs: 3, row: ZOXGZU, width_xs: 3}
+      name: roofing_slate
+      properties: {text: Roofing Slate}
+      type: CheckBox
+    - layout_properties: {col_xs: 6, row: ZOXGZU, width_xs: 3}
+      name: flint
+      properties: {checked: false, text: Flint, visible: true}
+      type: CheckBox
+    - layout_properties: {col_xs: 9, row: ZOXGZU, width_xs: 3}
+      name: worked_flint
+      properties: {text: Worked Flint}
+      type: CheckBox
+    - layout_properties: {col_xs: 0, row: ZDODLX, width_xs: 3}
+      name: pottery
+      properties: {text: Pottery}
+      type: CheckBox
+    - layout_properties: {col_xs: 3, row: ZDODLX, width_xs: 3}
+      name: clay_pipe
+      properties: {text: Clay Pipe}
+      type: CheckBox
+    - layout_properties: {col_xs: 6, row: ZDODLX, width_xs: 3}
+      name: metalwork
+      properties: {text: Metalwork}
+      type: CheckBox
+    - layout_properties: {col_xs: 9, row: ZDODLX, width_xs: 3}
+      name: nails
+      properties: {border: '', text: Nails}
+      type: CheckBox
+    - layout_properties: {col_xs: 0, row: TWAPMU, width_xs: 3}
+      name: iron_slag
+      properties: {text: Iron Slag}
+      type: CheckBox
+    - layout_properties: {col_xs: 3, row: TWAPMU, width_xs: 3}
+      name: glass
+      properties: {text: Glass}
+      type: CheckBox
+    - layout_properties: {col_xs: 6, row: TWAPMU, width_xs: 3}
+      name: animal_bone
+      properties: {text: Animal Bone}
+      type: CheckBox
+    - layout_properties: {col_xs: 9, row: TWAPMU, width_xs: 3}
+      name: oyster_shells
+      properties: {text: Oyster Shells}
+      type: CheckBox
+    - layout_properties: {col_xs: 0, row: NBNZRQ, width_xs: 3}
+      name: wood
+      properties: {text: Wood}
+      type: CheckBox
+    - layout_properties: {col_xs: 3, row: NBNZRQ, width_xs: 3}
+      name: charcoal
+      properties: {text: Charcoal}
+      type: CheckBox
+    layout_properties: {grid_position: 'RBXLZN,QKDTHQ'}
+    name: grid_panel_1
+    properties: {border: solid black 1px}
+    type: GridPanel
+  - layout_properties: {grid_position: 'HGHIHT,ERONKJ'}
+    name: Count_header
+    properties: {text: 'Count:'}
+    type: Label
+  - layout_properties: {grid_position: 'HGHIHT,RWQJHQ'}
+    name: Count
+    properties: {role: outlined, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'HGHIHT,NJMJDC'}
+    name: weight_header
+    properties: {text: 'Weight (in grams):'}
+    type: Label
+  - layout_properties: {grid_position: 'HGHIHT,BDDHOM'}
+    name: Weight
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'FSHQIB,JZGYOC'}
+    name: Name_header
+    properties: {text: 'Name (0/40):'}
+    type: Label
+  - layout_properties: {grid_position: 'FSHQIB,EAXXSI'}
+    name: Name
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'IABVMM,EQLGEB'}
+    name: Description_header
+    properties: {text: 'Description (0/255):'}
+    type: Label
+  - event_bindings: {change: Description_change}
+    layout_properties: {grid_position: 'MBNYGO,DJDZUS'}
+    name: Description
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 139}
+    type: TextArea
+  - layout_properties: {grid_position: 'MMNJSF,ATTOIA GUUJLZ,IVGQAJ'}
+    name: PackageType_header
+    properties: {text: 'Package Type:'}
+    type: Label
+  - layout_properties: {grid_position: 'MMNJSF,ATTOIA ZFQOWW,YFKKUN'}
+    name: PackageType
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'MMNJSF,DURZWQ VQGNRH,GAFFXV BXZHBK,OCEBNB'}
+    name: FindGroupId_header
+    properties: {text: 'Find Group ID:'}
+    type: Label
+  - layout_properties: {grid_position: 'MMNJSF,DURZWQ VQGNRH,GAFFXV TFZAEE,NQHDWD'}
+    name: FindGroupId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'MMNJSF,DURZWQ VQGNRH,XJSAGA HLKZRW,DDPHAI'}
+    name: BoxId_header
+    properties: {text: Box ID}
+    type: Label
+  - layout_properties: {grid_position: 'MMNJSF,DURZWQ VQGNRH,XJSAGA FXCRXL,KWMGME'}
+    name: BoxId
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'IPOEPF,ECCHSA'}
+    name: YearStart_header
+    properties: {text: 'Year Start:'}
+    type: Label
+  - layout_properties: {grid_position: 'IPOEPF,SGQFEA'}
+    name: YearStart
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'IPOEPF,QWHVUB'}
+    name: YearEnd_header
+    properties: {text: 'Year End:'}
+    type: Label
+  - layout_properties: {grid_position: 'IPOEPF,FQBEHG'}
+    name: YearEnd
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'LIITQC,ZTSQBX'}
+    name: DatesAssignedBy_header
+    properties: {text: 'Dates Assigned By (0/100):'}
+    type: Label
+  - event_bindings: {change: DatesAssignedBy_change}
+    layout_properties: {grid_position: 'RMGLRM,FLSZCB'}
+    name: DatesAssignedBy
+    properties: {role: outlined}
+    type: TextBox
+  - layout_properties: {grid_position: 'TQDECM,BHQZOT'}
+    name: ReferenceCollection_header
+    properties: {text: Reference Collection (0/65535)}
+    type: Label
+  - layout_properties: {grid_position: 'MGBMVQ,RKEABZ'}
+    name: ReferenceCollection
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 124}
+    type: TextArea
+  - layout_properties: {grid_position: 'UCVQEK,SPSMGU'}
+    name: Future_header
+    properties: {text: 'Future (0/65535):'}
+    type: Label
+  - layout_properties: {grid_position: 'ULHJZU,ZUXCEW'}
+    name: Future
+    properties: {background: 'theme:On Primary', border: solid black 1px, height: 142}
+    type: TextArea
+  layout_properties: {grid_position: 'DEBRXB,AHCBTB'}
+  name: outlined_card_1
+  properties: {col_widths: '{"GBZTBK":15,"BJYTJA":45,"ERONKJ":15,"RWQJHQ":30,"JZGYOC":10,"EAXXSI":50,"NJMJDC":20,"BDDHOM":25,"ATTOIA":25,"DURZWQ":35,"BHQZOT":10,"DNBSSU":20,"BXFYBB":15,"KFNADS":25,"ECCHSA":15,"SGQFEA":15,"QWHVUB":10,"FQBEHG":20}', role: outlined-card}
+  type: ColumnPanel
+- event_bindings: {click: Submit_button_click}
+  layout_properties: {grid_position: 'NPTDBN,SVEOOB'}
+  name: Submit_button
+  properties: {role: outlined-button, text: Submit}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

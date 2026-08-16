@@ -1,0 +1,7 @@
+components:
+- layout_properties: {grid_position: 'RLWLCH,XGHYSR'}
+  name: help_page_text
+  properties: {}
+  type: RichText
+container: {type: ColumnPanel}
+is_package: true
