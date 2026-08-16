@@ -301,7 +301,7 @@ def table_insert(table_name,table):
            "For exact details of your role please login to the above website and click on Help and read the relevant section of the Anchurus II user manual.\n\n"
            "Best wishes.\n\n"
            "%s %s - %s\n\n"
-           % (anviluser["firstname"],row["SiteId"],[row["Role"],Global_organisation,,anvil.server.get_app_origin(),admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
+           % (anviluser["firstname"],row["SiteId"],row["Role"],Global_organisation,,anvil.server.get_app_origin(),admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
         subject = ("Registration to access site %s for Anchurus-II system %s" % (row["SiteId"],Global_organisation))
         anvil.server.call("send_email",subject,email_msg,anviluser["email"],admin_user["email"])
         logmsg("DEBUG","Send notification email to user "+anviluser["email"])
