@@ -503,9 +503,11 @@ def save_workareas(name,work_areas_dict,site_id):
 @anvil.server.callable
 def send_email(subject,body,recipient,reply_to=None):
   #
+  from_address = config.get("email","email_from_address",fallback="no-reply@berksarch.co.uk")
+  
   if reply_to is None:
-    # if reply_to not given, use the from address in the configuration file. fallback is to use no-repy@berksarch.co.uk
-    reply_to = config.get("email","email_from_address",fallback="no-reply@berksarch.co.uk")
+    # if reply_to not given, use the from address in the configuration file.
+    reply_to = from_address
 
   #
   # 1. Create the message container
