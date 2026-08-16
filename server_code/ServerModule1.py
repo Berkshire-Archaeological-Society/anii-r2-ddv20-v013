@@ -634,7 +634,7 @@ def system_user_insert(email,password,systemrole,status,initials,firstname,lastn
            "Best wishes.\n\n"
            "%s %s - %s\n\n"
            % (firstname,Global_organisation,anvil.server.get_app_origin(),email,password,admin_user["firstname"],admin_user["lastname"],admin_user["email"]))
-    subject = ("Registration Anchurus-II system %s" % (anvil.server.get_app_origin()))
+    subject = ("Registration Anchurus-II system %s" % (Global_organisation))
     anvil.server.call("send_email",subject,msg,email,admin_user["email"])
     msg = "OK: Created new user: " + email
     logmsg("INFO", msg)
