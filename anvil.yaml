@@ -82,8 +82,8 @@ dependencies:
 - dep_id: dep_u7h63wh2m50rm
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {version_tag: v3.6.1}
-metadata: {logo_img: 'asset:logo.png', title: anii_r2_ddv20}
-name: Clone of anii_r2_ddv20
+metadata: {logo_img: 'asset:logo.png', title: anii_r2_ddv20v013}
+name: anii_r2_ddv20_v013
 native_deps:
   head_html: |
     <script>
@@ -107,7 +107,7 @@ native_deps:
         window.addEventListener(evt, recordActivity, { passive: true });
       });
     </script>
-package_name: anii_r2_ddv20
+package_name: anii_r2_ddv20_v013
 renamed: true
 runtime_options:
   client_version: '3'

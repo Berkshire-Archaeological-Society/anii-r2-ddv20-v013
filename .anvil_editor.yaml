@@ -48,4 +48,5 @@ unique_ids:
     utils._component_helpers: '1740311970143792194818672.1925'
     validation: '1773053406069931457779762.622'
   scripts: {}
-  server_modules: {}
+  server_modules:
+    ServerModule1: '1786883849033700897081767.1461'
